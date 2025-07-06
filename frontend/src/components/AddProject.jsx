@@ -36,7 +36,7 @@ const AddProjectForm = () => {
 
     console.log(formData);
     try {
-      const res = await fetch("http://localhost:3000/portfolio/add-project", {
+      const res = await fetch("https://portfolio-website-u1hq.onrender.com/portfolio/add-project", {
         method: "POST",
         body: data,
       });

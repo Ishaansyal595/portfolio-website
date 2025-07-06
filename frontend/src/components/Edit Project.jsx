@@ -16,7 +16,7 @@ const EditProject = ({ projectId }) => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/portfolio/project/${projectId}`);
+        const res = await fetch(`https://portfolio-website-u1hq.onrender.com/${projectId}`);
         const data = await res.json();
         setProject(data);
       } catch (err) {
@@ -38,7 +38,7 @@ const EditProject = ({ projectId }) => {
     e.preventDefault();
     setUpdating(true);
     try {
-      const res = await fetch(`http://localhost:3000/portfolio/project/${projectId}`, {
+      const res = await fetch(`https://portfolio-website-u1hq.onrender.com//pportfolio/project/${projectId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(project),
@@ -72,7 +72,7 @@ const EditProject = ({ projectId }) => {
     setUploading(true);
     try {
       const res = await fetch(
-        `http://localhost:3000/portfolio/project/${projectId}/add-images`,
+        `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}/add-images`,
         {
           method: "PATCH",
           body: formData,

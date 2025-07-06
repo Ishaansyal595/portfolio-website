@@ -9,7 +9,7 @@ const ProjectsSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("http://localhost:3000/portfolio/get-project");
+        const res = await fetch("https://portfolio-website-u1hq.onrender.com/portfolio/get-project");
         const data = await res.json();
 
         console.log(data);

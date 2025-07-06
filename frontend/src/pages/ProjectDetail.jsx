@@ -12,7 +12,7 @@ const ProjectDetail = () => {
     const fetchProject = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/portfolio/project/${id}`
+          `https://portfolio-website-u1hq.onrender.com/portfolio/project/${id}`
         );
         const data = await res.json();
 

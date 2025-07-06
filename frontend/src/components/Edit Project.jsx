@@ -38,7 +38,7 @@ const EditProject = ({ projectId }) => {
     e.preventDefault();
     setUpdating(true);
     try {
-      const res = await fetch(`https://portfolio-website-u1hq.onrender.com//pportfolio/project/${projectId}`, {
+      const res = await fetch(`https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(project),

@@ -9,7 +9,9 @@ const ProjectsSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("https://portfolio-website-u1hq.onrender.com/portfolio/get-project");
+        const res = await fetch(
+          "https://portfolio-website-u1hq.onrender.com/portfolio/get-project"
+        );
         const data = await res.json();
 
         console.log(data);
@@ -55,7 +57,7 @@ const ProjectsSection = () => {
               <Link to={`/project/${project._id}`}>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src={`http://localhost:3000/${project.images[0]}`}
+                    src={`https://portfolio-website-u1hq.onrender.com/${project.images[0]}`}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
                   />

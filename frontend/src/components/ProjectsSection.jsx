@@ -50,6 +50,8 @@ const ProjectsSection = () => {
             const imagePath = encodeURI(project.images[0].replace(/\\/g, "/"));
             const fullUrl = `https://portfolio-website-u1hq.onrender.com/${imagePath}`;
 
+            console.log(fullUrl);
+
             return (
               <div
                 key={project._id}

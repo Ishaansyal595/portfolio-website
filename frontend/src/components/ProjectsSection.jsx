@@ -14,10 +14,8 @@ const ProjectsSection = () => {
         );
         const data = await res.json();
 
-        console.log(data);
-
         if (data.success) {
-          setProjects(data.projects); // ✅ correct
+          setProjects(data.projects);
         } else {
           console.error("Error:", data.message);
         }
@@ -29,8 +27,6 @@ const ProjectsSection = () => {
     fetchProjects();
   }, []);
 
-  console.log(projects);
-
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-width-5xl">
@@ -41,6 +37,7 @@ const ProjectsSection = () => {
           Here are some of my projects. Each project was carefully made with
           attention to details, performance, and user experience.
         </p>
+
         <div
           className={`grid grid-cols-1 md:grid-cols-2 ${
             Array.isArray(projects) && projects.length > 2
@@ -53,7 +50,6 @@ const ProjectsSection = () => {
               key={project._id}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
-              {/* ✅ Only wrap clickable area for internal navigation */}
               <Link to={`/project/${project._id}`}>
                 <div className="h-48 overflow-hidden">
                   <img
@@ -73,7 +69,6 @@ const ProjectsSection = () => {
                 </div>
               </Link>
 
-              {/* ✅ External links must be outside the Link */}
               <div className="px-6 pb-6 flex justify-between space-x-3">
                 <a
                   href={project.github}

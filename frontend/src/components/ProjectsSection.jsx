@@ -46,35 +46,36 @@ const ProjectsSection = () => {
               : "lg:grid-cols-2"
           } gap-6`}
         >
-          {projects.map((project) => (
-            <div
-              key={project._id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              {/* 🟢 Internal navigation handled by a button/div */}
-              <div
-                onClick={() => navigate(`/project/${project._id}`)}
-                className="cursor-pointer"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(
-                      /\\/g,
-                      "/"
-                    )}`}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h2 className="text-xl font-bold mb-2">{project.title}</h2>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {project.description.slice(0, 100)}...
-                  </p>
-                </div>
-              </div>
+          {projects.map((project) => {
+            const imagePath = encodeURI(project.images[0].replace(/\\/g, "/"));
+            const fullUrl = `https://portfolio-website-u1hq.onrender.com/${imagePath}`;
 
-              {/* 🔗 External links — outside the internal navigation area
+            return (
+              <div
+                key={project._id}
+                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              >
+                {/* 🟢 Internal navigation handled by a button/div */}
+                <div
+                  onClick={() => navigate(`/project/${project._id}`)}
+                  className="cursor-pointer"
+                >
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={`https://portfolio-website-u1hq.onrender.com/${fullUrl}`}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h2 className="text-xl font-bold mb-2">{project.title}</h2>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {project.description.slice(0, 100)}...
+                    </p>
+                  </div>
+                </div>
+
+                {/* 🔗 External links — outside the internal navigation area
               <div className="px-6 pb-6 flex justify-between space-x-3">
                 <a
                   href={project.github}
@@ -93,8 +94,9 @@ const ProjectsSection = () => {
                   <ExternalLink />
                 </a>
               </div> */}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">

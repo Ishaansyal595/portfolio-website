@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
-const EditProject = ({ projectId }) => {
+const EditProject = () => {
+  const { id: projectId } = useParams();
+  const navigate = useNavigate();
+
   const [project, setProject] = useState({
     title: "",
     description: "",
@@ -13,20 +17,23 @@ const EditProject = ({ projectId }) => {
   const [uploading, setUploading] = useState(false);
   const [updating, setUpdating] = useState(false);
 
-  // Fetch project details on load
+  // 🔄 Fetch project details on load
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await axios.get(`https://portfolio-website-u1hq.onrender.com/${projectId}`);
-        const data = await res.json();
-        setProject(data);
+        const res = await axios.get(
+          `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`
+        );
+        setProject(res.data.project); // ✅ Set only the project object
       } catch (err) {
-        console.error("Failed to fetch project", err);
+        console.error("❌ Failed to fetch project", err);
+        alert("Failed to fetch project details");
       }
     };
     fetchProject();
   }, [projectId]);
 
+  // ✅ Update local state as user types
   const handleInputChange = (e) => {
     setProject({ ...project, [e.target.name]: e.target.value });
   };
@@ -35,17 +42,16 @@ const EditProject = ({ projectId }) => {
     setImages(e.target.files);
   };
 
+  // ✅ Submit project data update
   const handleDataSubmit = async (e) => {
     e.preventDefault();
     setUpdating(true);
     try {
-      const res = await fetch(`https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(project),
-      });
-      const data = await res.json();
-      if (data.success) {
+      const res = await axios.put(
+        `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`,
+        project
+      );
+      if (res.data.success) {
         alert("✅ Project updated successfully!");
       } else {
         alert("❌ Failed to update project");
@@ -57,6 +63,7 @@ const EditProject = ({ projectId }) => {
     setUpdating(false);
   };
 
+  // ✅ Submit new images
   const handleImageSubmit = async (e) => {
     e.preventDefault();
 
@@ -99,7 +106,7 @@ const EditProject = ({ projectId }) => {
     <div className="p-6 rounded-xl border border-gray-300 shadow-md">
       <h2 className="text-2xl font-bold mb-4">🛠️ Edit Project</h2>
 
-      {/* Edit Project Info */}
+      {/* 📄 Project Info Form */}
       <form onSubmit={handleDataSubmit} className="mb-6">
         <input
           type="text"
@@ -132,7 +139,6 @@ const EditProject = ({ projectId }) => {
           onChange={handleInputChange}
           className="block w-full mb-3 border p-2 rounded"
         />
-
         <button
           type="submit"
           disabled={updating}
@@ -142,7 +148,7 @@ const EditProject = ({ projectId }) => {
         </button>
       </form>
 
-      {/* Upload Images */}
+      {/* 🖼️ Image Upload Form */}
       <form onSubmit={handleImageSubmit} encType="multipart/form-data">
         <h3 className="text-xl font-semibold mb-2">📸 Add More Images</h3>
         <input

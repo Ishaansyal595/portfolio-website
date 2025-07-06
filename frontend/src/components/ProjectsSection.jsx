@@ -80,6 +80,14 @@ const ProjectsSection = () => {
                 >
                   <Github />
                 </a>
+                <a
+                  href={``}
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <ExternalLink />
+                </a>
               </div>
             </div>
           ))}

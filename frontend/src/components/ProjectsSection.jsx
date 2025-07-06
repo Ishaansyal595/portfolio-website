@@ -13,7 +13,6 @@ const ProjectsSection = () => {
           "https://portfolio-website-u1hq.onrender.com/portfolio/get-project"
         );
         const data = await res.json();
-
         if (data.success) {
           setProjects(data.projects);
         } else {
@@ -48,31 +47,33 @@ const ProjectsSection = () => {
           {projects.map((project) => (
             <div
               key={project._id}
-              onClick={() => navigate(`/project/${project._id}`)}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover cursor-pointer"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(
-                    /\\/g,
-                    "/"
-                  )}`}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-bold mb-2">{project.title}</h2>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description.slice(0, 100)}...
-                </p>
+              {/* 🟢 Internal navigation handled by a button/div */}
+              <div
+                onClick={() => navigate(`/project/${project._id}`)}
+                className="cursor-pointer"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(
+                      /\\/g,
+                      "/"
+                    )}`}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h2 className="text-xl font-bold mb-2">{project.title}</h2>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {project.description.slice(0, 100)}...
+                  </p>
+                </div>
               </div>
 
-              {/* ✅ This wrapper now stops clicks from bubbling to the card */}
-              <div
-                className="px-6 pb-6 flex justify-between space-x-3"
-                onClick={(e) => e.stopPropagation()} // ✅ FIXED LINE
-              >
+              {/* 🔗 External links — outside the internal navigation area */}
+              <div className="px-6 pb-6 flex justify-between space-x-3">
                 <a
                   href={project.github}
                   className="text-foreground/80 hover:text-primary transition-colors duration-300"

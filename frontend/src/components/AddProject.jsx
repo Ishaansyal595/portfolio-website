@@ -10,6 +10,8 @@ const AddProjectForm = () => {
     description: "",
     features: "",
     technology: "",
+    github: "",
+    live: "",
     images: [],
   });
 
@@ -27,6 +29,8 @@ const AddProjectForm = () => {
     const data = new FormData();
     data.append("title", formData.title);
     data.append("description", formData.description);
+    data.append("github", formData.github);
+    data.append("live", formData.live);
     data.append("features", JSON.stringify(formData.features.split(",")));
     data.append("technology", JSON.stringify(formData.technology.split(",")));
 
@@ -36,10 +40,13 @@ const AddProjectForm = () => {
 
     console.log(formData);
     try {
-      const res = await fetch("https://portfolio-website-u1hq.onrender.com/portfolio/add-project", {
-        method: "POST",
-        body: data,
-      });
+      const res = await fetch(
+        "https://portfolio-website-u1hq.onrender.com/portfolio/add-project",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
       const result = await res.json();
 
@@ -102,7 +109,7 @@ const AddProjectForm = () => {
         <input
           type="text"
           name="github"
-          placeholder='Github'
+          placeholder="Github"
           value={formData.github}
           onChange={handleChange}
           required
@@ -110,7 +117,7 @@ const AddProjectForm = () => {
         <input
           type="text"
           name="live"
-          placeholder='Live'
+          placeholder="Live"
           value={formData.live}
           onChange={handleChange}
           required

@@ -16,7 +16,7 @@ const port = process.env.PORT;
 
 app.use(
   cors({
-    origin: "https://portfolio-website-tau-one-36.vercel.app",
+    origin: "https://portfolio-website-rho-liart-85.vercel.app",
     credentials: true,
   })
 );

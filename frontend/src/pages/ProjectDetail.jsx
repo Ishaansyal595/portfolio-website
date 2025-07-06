@@ -60,9 +60,13 @@ const ProjectDetail = () => {
         {project.images.map((img, i) => (
           <img
             key={i}
-            src={`http://localhost:3000/${img}`}
+            src={`https://portfolio-website-u1hq.onrender.com/${img}`}
             alt={`Project Screenshot ${i + 1}`}
-            onClick={() => setSelectedImage(`http://localhost:3000/${img}`)}
+            onClick={() =>
+              setSelectedImage(
+                `https://portfolio-website-u1hq.onrender.com/${img}`
+              )
+            }
             className=" h-34 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
           />
         ))}

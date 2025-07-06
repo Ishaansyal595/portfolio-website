@@ -10,8 +10,6 @@ const AddProjectForm = () => {
     description: "",
     features: "",
     technology: "",
-    github: "",
-    live: "",
     images: [],
   });
 
@@ -29,8 +27,6 @@ const AddProjectForm = () => {
     const data = new FormData();
     data.append("title", formData.title);
     data.append("description", formData.description);
-    data.append("github", formData.github);
-    data.append("live", formData.live);
     data.append("features", JSON.stringify(formData.features.split(",")));
     data.append("technology", JSON.stringify(formData.technology.split(",")));
 
@@ -102,23 +98,6 @@ const AddProjectForm = () => {
           name="technology"
           placeholder='Technologies (e.g., "React,Node,MongoDB")'
           value={formData.technology}
-          onChange={handleChange}
-          required
-        />
-
-        <input
-          type="text"
-          name="github"
-          placeholder="Github"
-          value={formData.github}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="live"
-          placeholder="Live"
-          value={formData.live}
           onChange={handleChange}
           required
         />

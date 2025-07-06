@@ -1,6 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
@@ -49,9 +49,8 @@ const ProjectsSection = () => {
             <div
               key={project._id}
               onClick={() => navigate(`/project/${project._id}`)}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover cursor-pointer"
             >
-              {" "}
               <div className="h-48 overflow-hidden">
                 <img
                   src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(
@@ -68,10 +67,14 @@ const ProjectsSection = () => {
                   {project.description.slice(0, 100)}...
                 </p>
               </div>
-              <div className="px-6 pb-6 flex justify-between space-x-3">
+
+              {/* ✅ This wrapper now stops clicks from bubbling to the card */}
+              <div
+                className="px-6 pb-6 flex justify-between space-x-3"
+                onClick={(e) => e.stopPropagation()} // ✅ FIXED LINE
+              >
                 <a
                   href={project.github}
-                  onClick={(e) => e.stopPropagation()}
                   className="text-foreground/80 hover:text-primary transition-colors duration-300"
                   target="_blank"
                   rel="noreferrer"
@@ -80,7 +83,6 @@ const ProjectsSection = () => {
                 </a>
                 <a
                   href={project.live}
-                  onClick={(e) => e.stopPropagation()}
                   className="text-foreground/80 hover:text-primary transition-colors duration-300"
                   target="_blank"
                   rel="noreferrer"

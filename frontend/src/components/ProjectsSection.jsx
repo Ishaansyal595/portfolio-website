@@ -62,7 +62,7 @@ const ProjectsSection = () => {
                 >
                   <div className="h-48 overflow-hidden">
                     <img
-                      src={`https://portfolio-website-u1hq.onrender.com/${fullUrl}`}
+                      src={fullUrl}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
                     />

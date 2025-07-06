@@ -14,12 +14,20 @@ connectDB();
 
 const port = process.env.PORT;
 
-app.use(cors({ origin: "https://portfolio-pearl-chi-30ci4bqv23.vercel.app/", credentials: true }));
+app.use(
+  cors({
+    origin: "https://portfolio-website-tau-one-36.vercel.app/",
+    credentials: true,
+  })
+);
 
 app.use("/uploads", express.static("uploads")); // Serve static images
 
 app.use("/portfolio", projectRouter);
 
+app.get("/", (req, res) => {
+  res.send("🚀 Portfolio API is live");
+});
 app.listen(port, () => {
   console.log(`🚀 Server is running on port ${port}`);
 });

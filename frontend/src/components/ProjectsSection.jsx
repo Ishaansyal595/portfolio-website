@@ -26,7 +26,7 @@ const ProjectsSection = () => {
     fetchProjects();
   }, []);
 
-  console.log("projects ",projects);
+  console.log("projects ", projects);
 
   return (
     <section id="projects" className="py-24 px-4 relative">
@@ -47,10 +47,6 @@ const ProjectsSection = () => {
           } gap-6`}
         >
           {projects.map((project) => {
-            console.log("project image 0", project.images[0]);
-            const imagePath = encodeURI(project.images[0].replace(/\\/g, "/"));
-            const fullUrl = `https://portfolio-website-u1hq.onrender.com/${imagePath}`;
-
             return (
               <div
                 key={project._id}
@@ -63,7 +59,7 @@ const ProjectsSection = () => {
                 >
                   <div className="h-48 overflow-hidden">
                     <img
-                      src={fullUrl}
+                      src={project.images[0]}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
                     />

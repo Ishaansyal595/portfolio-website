@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 const EditProject = ({ projectId }) => {
   const [project, setProject] = useState({
@@ -16,7 +17,7 @@ const EditProject = ({ projectId }) => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await fetch(`https://portfolio-website-u1hq.onrender.com/${projectId}`);
+        const res = await axios.get(`https://portfolio-website-u1hq.onrender.com/${projectId}`);
         const data = await res.json();
         setProject(data);
       } catch (err) {

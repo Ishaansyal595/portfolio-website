@@ -4,7 +4,7 @@ export const addProjects = async (req, res) => {
   try {
     console.log("🔥 Controller hit");
 
-    const { title, description, features, technology } = req.body;
+    const { title, description, features, technology, github, live } = req.body;
     console.log("BODY:", req.body);
     console.log("FILES:", req.files);
 
@@ -15,6 +15,8 @@ export const addProjects = async (req, res) => {
       !description ||
       !features ||
       !technology ||
+      !github ||
+      !live ||
       imagePaths.length === 0
     ) {
       return res
@@ -44,6 +46,8 @@ export const addProjects = async (req, res) => {
       description,
       features: parsedFeatures,
       technology: parsedTechnology,
+      github,
+      live,
       images: imagePaths,
     });
 

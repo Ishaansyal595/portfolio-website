@@ -57,19 +57,22 @@ const ProjectDetail = () => {
       </p>
 
       <div className="flex flex-wrap gap-4 justify-center mb-16">
-        {project.images.map((img, i) => (
-          <img
-            key={i}
-            src={`https://portfolio-website-u1hq.onrender.com/${img}`}
-            alt={`Project Screenshot ${i + 1}`}
-            onClick={() =>
-              setSelectedImage(
-                `https://portfolio-website-u1hq.onrender.com/${img}`
-              )
-            }
-            className=" h-34 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-          />
-        ))}
+        {project.images.map((img, i) => {
+          console.log("project detail images", img);
+          return (
+            <img
+              key={i}
+              src={`https://portfolio-website-u1hq.onrender.com/${img}`}
+              alt={`Project Screenshot ${i + 1}`}
+              onClick={() =>
+                setSelectedImage(
+                  `https://portfolio-website-u1hq.onrender.com/${img}`
+                )
+              }
+              className=" h-34 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+            />
+          );
+        })}
         {selectedImage && (
           <div
             className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"

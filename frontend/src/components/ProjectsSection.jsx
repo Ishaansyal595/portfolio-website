@@ -47,7 +47,7 @@ const ProjectsSection = () => {
           } gap-6`}
         >
           {projects.map((project) => {
-            console.log(project.images[0]);
+            console.log("project image 0", project.images[0]);
             const imagePath = encodeURI(project.images[0].replace(/\\/g, "/"));
             const fullUrl = `https://portfolio-website-u1hq.onrender.com/${imagePath}`;
 

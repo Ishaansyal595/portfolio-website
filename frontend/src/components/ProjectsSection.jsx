@@ -57,7 +57,7 @@ const ProjectsSection = () => {
               <Link to={`/project/${project._id}`}>
                 <div className="h-48 overflow-hidden">
                   <img
-                    src={`https://portfolio-website-u1hq.onrender.com/${project.images[0]}`}
+                    src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(/\\/g, "/")}`}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
                   />

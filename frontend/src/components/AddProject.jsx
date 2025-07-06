@@ -100,6 +100,23 @@ const AddProjectForm = () => {
         />
 
         <input
+          type="text"
+          name="github"
+          placeholder='Github'
+          value={formData.github}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="live"
+          placeholder='Live'
+          value={formData.live}
+          onChange={handleChange}
+          required
+        />
+
+        <input
           type="file"
           name="images"
           multiple

@@ -48,27 +48,26 @@ const ProjectsSection = () => {
           {projects.map((project) => (
             <div
               key={project._id}
+              onClick={() => navigate(`/project/${project._id}`)}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
-              <Link to={`/project/${project._id}`}>
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(
-                      /\\/g,
-                      "/"
-                    )}`}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h2 className="text-xl font-bold mb-2">{project.title}</h2>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {project.description.slice(0, 100)}...
-                  </p>
-                </div>
-              </Link>
-
+              {" "}
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={`https://portfolio-website-u1hq.onrender.com/${project.images[0].replace(
+                    /\\/g,
+                    "/"
+                  )}`}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-xl font-bold mb-2">{project.title}</h2>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {project.description.slice(0, 100)}...
+                </p>
+              </div>
               <div className="px-6 pb-6 flex justify-between space-x-3">
                 <a
                   href={project.github}

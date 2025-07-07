@@ -72,7 +72,8 @@ const ProjectsSection = () => {
                     </p>
                   </div>
                 </div>
-                🔗 External links — outside the internal navigation area
+                
+                {/* 🔗 External links — outside the internal navigation area */}
                 <div className="px-6 pb-6 flex justify-between space-x-3">
                   <a
                     href={project.github}

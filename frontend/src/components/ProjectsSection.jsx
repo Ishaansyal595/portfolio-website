@@ -72,26 +72,28 @@ const ProjectsSection = () => {
                     </p>
                   </div>
                 </div>
+                🔗 External links — outside the internal navigation area
+                <div className="px-6 pb-6 flex justify-between space-x-3">
+                  <a
+                    href={project.github}
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Github />
+                  </a>
 
-                {/* 🔗 External links — outside the internal navigation area
-              <div className="px-6 pb-6 flex justify-between space-x-3">
-                <a
-                  href={project.github}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Github />
-                </a>
-                <a
-                  href={project.live}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <ExternalLink />
-                </a>
-              </div> */}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <ExternalLink />
+                    </a>
+                  )}
+                </div>
               </div>
             );
           })}

@@ -10,7 +10,7 @@ const ProjectsSection = () => {
     const fetchProjects = async () => {
       try {
         const res = await fetch(
-          "https://food-delivery-app-qczs.onrender.com/portfolio/get-project"
+          "https://portfolio-website-u1hq.onrender.com/portfolio/get-project"
         );
         const data = await res.json();
         if (data.success) {

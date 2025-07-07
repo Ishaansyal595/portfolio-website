@@ -12,7 +12,7 @@ const ProjectDetail = () => {
     const fetchProject = async () => {
       try {
         const res = await fetch(
-          `https://portfolio-website-u1hq.onrender.com/portfolio/project/${id}`
+          `https://food-delivery-app-qczs.onrender.com/portfolio/project/${id}`
         );
         const data = await res.json();
 

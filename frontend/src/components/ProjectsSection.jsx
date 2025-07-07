@@ -39,66 +39,72 @@ const ProjectsSection = () => {
           attention to details, performance, and user experience.
         </p>
 
-        <div
-          className={`grid grid-cols-1 md:grid-cols-2 ${
-            Array.isArray(projects) && projects.length > 2
-              ? "lg:grid-cols-3"
-              : "lg:grid-cols-2"
-          } gap-6`}
-        >
-          {projects.map((project) => {
-            console.log(project.images[0]);
-            return (
-              <div
-                key={project._id}
-                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-              >
-                {/* 🟢 Internal navigation handled by a button/div */}
+        {projects ? (
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 ${
+              Array.isArray(projects) && projects.length > 2
+                ? "lg:grid-cols-3"
+                : "lg:grid-cols-2"
+            } gap-6`}
+          >
+            {projects.map((project) => {
+              console.log(project.images[0]);
+              return (
                 <div
-                  onClick={() => navigate(`/project/${project._id}`)}
-                  className="cursor-pointer"
+                  key={project._id}
+                  className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
                 >
-                  <div className="h-48 overflow-hidden">
-                    <img
-                      src={project.images[0]}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h2 className="text-xl font-bold mb-2">{project.title}</h2>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      {project.description.slice(0, 100)}...
-                    </p>
-                  </div>
-                </div>
-                
-                {/* 🔗 External links — outside the internal navigation area */}
-                <div className="px-6 pb-6 flex justify-between space-x-3">
-                  <a
-                    href={project.github}
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    target="_blank"
-                    rel="noreferrer"
+                  {/* 🟢 Internal navigation handled by a button/div */}
+                  <div
+                    onClick={() => navigate(`/project/${project._id}`)}
+                    className="cursor-pointer"
                   >
-                    <Github />
-                  </a>
+                    <div className="h-48 overflow-hidden">
+                      <img
+                        src={project.images[0]}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h2 className="text-xl font-bold mb-2">
+                        {project.title}
+                      </h2>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        {project.description.slice(0, 100)}...
+                      </p>
+                    </div>
+                  </div>
 
-                  {project.live && (
+                  {/* 🔗 External links — outside the internal navigation area */}
+                  <div className="px-6 pb-6 flex justify-between space-x-3">
                     <a
-                      href={project.live}
+                      href={project.github}
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <ExternalLink />
+                      <Github />
                     </a>
-                  )}
+
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
 
         <div className="text-center mt-12">
           <a

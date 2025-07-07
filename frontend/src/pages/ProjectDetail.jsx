@@ -62,13 +62,9 @@ const ProjectDetail = () => {
           return (
             <img
               key={i}
-              src={`https://portfolio-website-u1hq.onrender.com/${img}`}
+              src={img}
               alt={`Project Screenshot ${i + 1}`}
-              onClick={() =>
-                setSelectedImage(
-                  `https://portfolio-website-u1hq.onrender.com/${img}`
-                )
-              }
+              onClick={() => setSelectedImage(img)}
               className=" h-34 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
             />
           );

@@ -54,6 +54,8 @@ const EditProject = () => {
         project
       );
 
+      console.log(res.data);
+
       if (res.data.success) {
         alert("✅ Project updated successfully!");
         navigate(
@@ -166,7 +168,7 @@ const EditProject = () => {
           onChange={handleInputChange}
           className="block w-full mb-3 border p-2 rounded"
         />
-        
+
         <button
           type="submit"
           disabled={updating}

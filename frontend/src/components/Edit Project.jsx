@@ -9,6 +9,8 @@ const EditProject = () => {
   const [project, setProject] = useState({
     title: "",
     description: "",
+    features: "",
+    technology: "",
     github: "",
     live: "",
   });
@@ -51,8 +53,12 @@ const EditProject = () => {
         `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`,
         project
       );
+
       if (res.data.success) {
         alert("✅ Project updated successfully!");
+        navigate(
+          `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`
+        );
       } else {
         alert("❌ Failed to update project");
       }
@@ -116,6 +122,7 @@ const EditProject = () => {
           onChange={handleInputChange}
           className="block w-full mb-3 border p-2 rounded"
         />
+
         <textarea
           name="description"
           placeholder="Description"
@@ -123,6 +130,25 @@ const EditProject = () => {
           onChange={handleInputChange}
           className="block w-full mb-3 border p-2 rounded"
         />
+
+        <input
+          type="text"
+          name="features"
+          placeholder="features"
+          value={project.features}
+          onChange={handleInputChange}
+          className="block w-full mb-3 border p-2 rounded"
+        />
+
+        <input
+          type="text"
+          name="technology"
+          placeholder="technology"
+          value={project.technology}
+          onChange={handleInputChange}
+          className="block w-full mb-3 border p-2 rounded"
+        />
+
         <input
           type="text"
           name="github"
@@ -131,6 +157,7 @@ const EditProject = () => {
           onChange={handleInputChange}
           className="block w-full mb-3 border p-2 rounded"
         />
+
         <input
           type="text"
           name="live"
@@ -139,6 +166,7 @@ const EditProject = () => {
           onChange={handleInputChange}
           className="block w-full mb-3 border p-2 rounded"
         />
+        
         <button
           type="submit"
           disabled={updating}

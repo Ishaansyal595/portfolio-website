@@ -54,7 +54,7 @@ const EditProject = () => {
         project
       );
 
-      console.log(res.data);
+      console.log("res: ", res.data);
 
       if (res.data.success) {
         alert("✅ Project updated successfully!");

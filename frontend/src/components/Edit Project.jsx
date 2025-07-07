@@ -26,6 +26,8 @@ const EditProject = () => {
         const res = await axios.get(
           `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`
         );
+
+        console.log("res: ", res);
         setProject(res.data.project); // ✅ Set only the project object
       } catch (err) {
         console.error("❌ Failed to fetch project", err);
@@ -53,8 +55,6 @@ const EditProject = () => {
         `https://portfolio-website-u1hq.onrender.com/portfolio/project/${projectId}`,
         project
       );
-
-      console.log("res: ", res.data);
 
       if (res.data.success) {
         alert("✅ Project updated successfully!");

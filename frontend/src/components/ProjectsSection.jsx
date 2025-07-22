@@ -1,6 +1,7 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
@@ -102,7 +103,7 @@ const ProjectsSection = () => {
             })}
           </div>
         ) : (
-          <p>Loading...</p>
+          <LoadingSpinner />
         )}
 
         <div className="text-center mt-12">

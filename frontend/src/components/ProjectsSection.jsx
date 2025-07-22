@@ -48,7 +48,6 @@ const ProjectsSection = () => {
             } gap-6`}
           >
             {projects.map((project) => {
-              console.log(project.images[0]);
               return (
                 <div
                   key={project._id}

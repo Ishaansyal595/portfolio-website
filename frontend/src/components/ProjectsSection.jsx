@@ -7,6 +7,8 @@ const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -21,13 +23,13 @@ const ProjectsSection = () => {
         }
       } catch (error) {
         console.error("Fetch error:", error);
+      } finally {
+        setLoading(false); // ✅ always stop loading
       }
     };
 
     fetchProjects();
   }, []);
-
-  console.log("projects ", projects);
 
   return (
     <section id="projects" className="py-24 px-4 relative">
@@ -40,7 +42,9 @@ const ProjectsSection = () => {
           attention to details, performance, and user experience.
         </p>
 
-        {projects ? (
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
           <div
             className={`grid grid-cols-1 md:grid-cols-2 ${
               Array.isArray(projects) && projects.length > 2
@@ -102,8 +106,6 @@ const ProjectsSection = () => {
               );
             })}
           </div>
-        ) : (
-          <LoadingSpinner />
         )}
 
         <div className="text-center mt-12">

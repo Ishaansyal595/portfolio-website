@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Facebook,
@@ -85,13 +85,19 @@ const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4">Connnect With Me</h4>
               <div className="flex space-x-4 justify-center items-center">
-                <a href="" target="_blank">
+                <a
+                  href="https://www.instagram.com/isshaan._?igsh=MWNxNzZveDJzNHEybw%3D%3D&utm_source=qr"
+                  target="_blank"
+                >
                   <Instagram />
                 </a>
                 <a href="" target="_blank">
                   <Facebook />
                 </a>
-                <a href="" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/ishaan-syal/"
+                  target="_blank"
+                >
                   <Linkedin />
                 </a>
               </div>

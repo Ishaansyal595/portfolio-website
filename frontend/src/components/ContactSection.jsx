@@ -171,7 +171,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <label
-                  htmlFor="messsage"
+                  htmlFor="message"
                   className="text-sm block font-medium mb-2"
                 >
                   Message

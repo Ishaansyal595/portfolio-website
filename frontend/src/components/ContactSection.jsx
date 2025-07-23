@@ -28,7 +28,7 @@ const ContactSection = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://portfolio-website-u1hq.onrender.com/portfolio/send-request",
+        "https://portfolio-website-u1hq.onrender.com/portfolio/mail/send-request",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -24,15 +24,15 @@ const AboutMeSection = () => {
               professionally.
             </p>
             <div className="flex flex-col gap-4 pt-4 sm:flex-row justify-center">
-              <a href="#contsct" className="cosmic-button">
+              <a href="#contact" className="cosmic-button">
                 Get in Touch
               </a>
-              <a
-                href="#contsct"
+              {/* <a
+                href="#contact"
                 className="px-6 py-2 rounded-full border border-primary transition-colors text-primary hover:bg-primary/10 duration-300"
               >
                 Download CV
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="grid grid-cols-1 gap-6">

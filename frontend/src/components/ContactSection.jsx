@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Facebook,
@@ -31,6 +31,7 @@ const ContactSection = () => {
         "https://portfolio-website-u1hq.onrender.com/portfolio/send-request"
       );
       const data = await res.json();
+      console.log(data)
 
       if (data.success) {
         toast.success("The Message has been Sent!");

@@ -1,5 +1,5 @@
 import express from "express";
-import { SendMail } from "./sendMail";
+import { SendMail } from "./sendMail.js";
 
 const MailRouter = express.Router() 
 

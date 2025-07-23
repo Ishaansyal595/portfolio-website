@@ -3,6 +3,7 @@ import { connectDB } from "./connectDb.js";
 import projectRouter from "./project.route.js";
 import cors from "cors";
 import dotenv from "dotenv";
+import MailRouter from './sendMail.routes';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(
 app.use("/uploads", express.static("uploads")); // Serve static images
 
 app.use("/portfolio", projectRouter);
+app.use("/portfolio", MailRouter);
 
 app.get("/", (req, res) => {
   res.send("🚀 Portfolio API is live");

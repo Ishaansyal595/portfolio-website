@@ -28,17 +28,22 @@ const ContactSection = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://portfolio-website-u1hq.onrender.com/portfolio/send-request"
+        "https://portfolio-website-u1hq.onrender.com/portfolio/send-request",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
       );
       const data = await res.json();
-      console.log(data)
+      console.log(data);
 
       if (data.success) {
         toast.success("The Message has been Sent!");
         setFormData({ name: "", email: "", message: "" });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 

@@ -179,7 +179,7 @@ const ContactSection = () => {
                 <textarea
                   rows={5}
                   type="text"
-                  id="messageg"
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}

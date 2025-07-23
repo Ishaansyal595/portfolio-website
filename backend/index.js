@@ -3,7 +3,7 @@ import { connectDB } from "./connectDb.js";
 import projectRouter from "./project.route.js";
 import cors from "cors";
 import dotenv from "dotenv";
-import MailRouter from './sendMail.routes';
+import MailRouter from './sendMail.routes.js';
 
 const app = express();
 

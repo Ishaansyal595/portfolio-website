@@ -13,12 +13,30 @@ import utils from "../lib/utils";
 import { toast } from "sonner";
 
 const ContactSection = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      console.log("The Message has been Sent!");
-      toast.success("The Message has been Sent!");
-    }, 1500);
+    try {
+      const res = await fetch(
+        "https://portfolio-website-u1hq.onrender.com/portfolio/send-request"
+      );
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("The Message has been Sent!");
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {}
   };
 
   return (
@@ -103,6 +121,7 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
+          
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -117,6 +136,8 @@ const ContactSection = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                   placeholder="Enter your name"
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
@@ -124,7 +145,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="email"
                   className="text-sm block font-medium mb-2"
                 >
                   Your Email
@@ -133,6 +154,8 @@ const ContactSection = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                   placeholder="Enter your email"
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
@@ -140,7 +163,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="messsage"
                   className="text-sm block font-medium mb-2"
                 >
                   Message
@@ -150,6 +173,8 @@ const ContactSection = () => {
                   type="text"
                   id="messageg"
                   name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                   placeholder="Enter your message"
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"

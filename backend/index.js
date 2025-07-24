@@ -17,7 +17,7 @@ const port = process.env.PORT;
 
 app.use(
   cors({
-    origin: "https://portfolio-website-nine-gray-74.vercel.app",
+    origin: "https://portfolio-website-orcin-psi-12.vercel.app",
     credentials: true,
   })
 );

@@ -9,43 +9,43 @@ import {
   Phone,
   Send,
 } from "lucide-react";
-// import utils from "../lib/utils";
-// import { toast } from "sonner";
+import utils from "../lib/utils";
+import { toast } from "sonner";
 
 const ContactSection = () => {
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   message: "",
-  // });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  // const handleChange = (e) => {
-  //   const { id, value } = e.target;
-  //   setFormData((prev) => ({ ...prev, [id]: value }));
-  // };
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await fetch(
-  //       "https://portfolio-website-u1hq.onrender.com/portfolio/mail/send-request",
-  //       {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     );
-  //     const data = await res.json();
-  //     console.log(data);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(
+        "https://portfolio-website-u1hq.onrender.com/portfolio/mail/send-request",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+      const data = await res.json();
+      console.log(data);
 
-  //     if (data.success) {
-  //       toast.success("The Message has been Sent!");
-  //       setFormData({ name: "", email: "", message: "" });
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+      if (data.success) {
+        toast.success("The Message has been Sent!");
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <section className="py-24 px-4 relative bg-secondary/30" id="contact">
@@ -59,77 +59,78 @@ const ContactSection = () => {
           out.
         </p>
 
-        <div className=" space-y-8">
-          <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="space-y-8">
+            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
 
-          <div className="flex items-center justify-center gap-15 space-y-6">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 rounded-full bg-primary/10">
-                <Mail className="text-primary" />
+            <div className="justify-center space-y-6">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Mail className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-medium"> Email</h4>
+                  <a
+                    href="mailto:ishaansyal595@gmail.com"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {" "}
+                    ishaansyal595@gmail.com
+                  </a>
+                </div>
               </div>
-              <div>
-                <h4 className="font-medium"> Email</h4>
-                <a
-                  href="mailto:ishaansyal595@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {" "}
-                  ishaansyal595@gmail.com
-                </a>
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Phone className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-medium"> Phone</h4>
+                  <a
+                    href="tel:+917710274988"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {" "}
+                    (+91) 7710274988
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <MapPin className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-medium"> Location</h4>
+                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                    {" "}
+                    Rishi Nagar, Ludhiana 141001, Punjab, India
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="p-3 rounded-full bg-primary/10">
-                <Phone className="text-primary" />
-              </div>
-              <div>
-                <h4 className="font-medium"> Phone</h4>
+
+            <div className="pt-8">
+              <h4 className="font-medium mb-4">Connnect With Me</h4>
+              <div className="flex space-x-4 justify-center items-center">
                 <a
-                  href="tel:+917710274988"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  href="https://www.instagram.com/isshaan._?igsh=MWNxNzZveDJzNHEybw%3D%3D&utm_source=qr"
+                  target="_blank"
                 >
-                  {" "}
-                  (+91) 7710274988
+                  <Instagram />
                 </a>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="p-3 rounded-full bg-primary/10">
-                <MapPin className="text-primary" />
-              </div>
-              <div>
-                <h4 className="font-medium"> Location</h4>
-                <a className="text-muted-foreground hover:text-primary transition-colors">
-                  {" "}
-                  Rishi Nagar, Ludhiana 141001, Punjab, India
+                <a href="" target="_blank">
+                  <Facebook />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ishaan-syal/"
+                  target="_blank"
+                >
+                  <Linkedin />
                 </a>
               </div>
             </div>
           </div>
 
-          <div >
-            <h4 className="font-medium text-2xl mb-4">Connnect With Me</h4>
-            <div className="flex space-x-6 justify-center items-center">
-              <a
-                href="https://www.instagram.com/isshaan._?igsh=MWNxNzZveDJzNHEybw%3D%3D&utm_source=qr"
-                target="_blank"
-              >
-                <Instagram />
-              </a>
-              <a href="" target="_blank">
-                <Facebook />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ishaan-syal/"
-                target="_blank"
-              >
-                <Linkedin />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* <div className="bg-card p-8 rounded-lg shadow-xs">
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -196,7 +197,8 @@ const ContactSection = () => {
                 Send Message <Send size={16} />
               </button>
             </form>
-          </div> */}
+          </div>
+        </div>
       </div>
     </section>
   );

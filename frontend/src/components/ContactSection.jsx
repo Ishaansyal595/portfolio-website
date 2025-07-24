@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   Facebook,
   Instagram,
@@ -18,6 +17,7 @@ const ContactSection = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -26,6 +26,7 @@ const ContactSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const res = await fetch(
         "https://portfolio-website-u1hq.onrender.com/portfolio/mail/send-request",
@@ -41,9 +42,14 @@ const ContactSection = () => {
       if (data.success) {
         toast.success("The Message has been Sent!");
         setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error(data.message || "Failed to send message.");
       }
     } catch (error) {
       console.log(error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -55,7 +61,7 @@ const ContactSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mx-auto mb-12 max-w-2xl">
-          Having a projectv in mind or want to collaborate? Feel free to reach
+          Having a project in mind or want to collaborate? Feel free to reach
           out.
         </p>
 
@@ -74,7 +80,6 @@ const ContactSection = () => {
                     href="mailto:ishaansyal595@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {" "}
                     ishaansyal595@gmail.com
                   </a>
                 </div>
@@ -89,7 +94,6 @@ const ContactSection = () => {
                     href="tel:+917710274988"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {" "}
                     (+91) 7710274988
                   </a>
                 </div>
@@ -100,29 +104,38 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    {" "}
+                  <span className="text-muted-foreground hover:text-primary transition-colors">
                     Rishi Nagar, Ludhiana 141001, Punjab, India
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className="pt-8">
-              <h4 className="font-medium mb-4">Connnect With Me</h4>
+              <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-center items-center">
                 <a
                   href="https://www.instagram.com/isshaan._?igsh=MWNxNzZveDJzNHEybw%3D%3D&utm_source=qr"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram profile"
                 >
                   <Instagram />
                 </a>
-                <a href="" target="_blank">
+                {/* Replace this with your real Facebook link or remove */}
+                {/* <a
+                  href="https://www.facebook.com/your-profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook profile"
+                >
                   <Facebook />
-                </a>
+                </a> */}
                 <a
                   href="https://www.linkedin.com/in/ishaan-syal/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
                 >
                   <Linkedin />
                 </a>
@@ -178,7 +191,6 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   rows={5}
-                  type="text"
                   id="message"
                   name="message"
                   value={formData.message}
@@ -190,11 +202,12 @@ const ContactSection = () => {
               </div>
               <button
                 type="submit"
+                disabled={isLoading}
                 className={utils(
                   "flex justify-center items-center cosmic-button gap-2 w-full"
                 )}
               >
-                Send Message <Send size={16} />
+                {isLoading ? "Sending..." : "Send Message"} <Send size={16} />
               </button>
             </form>
           </div>

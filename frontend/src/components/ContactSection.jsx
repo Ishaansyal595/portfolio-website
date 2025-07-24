@@ -9,43 +9,43 @@ import {
   Phone,
   Send,
 } from "lucide-react";
-import utils from "../lib/utils";
-import { toast } from "sonner";
+// import utils from "../lib/utils";
+// import { toast } from "sonner";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   message: "",
+  // });
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
+  // const handleChange = (e) => {
+  //   const { id, value } = e.target;
+  //   setFormData((prev) => ({ ...prev, [id]: value }));
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch(
-        "https://portfolio-website-u1hq.onrender.com/portfolio/mail/send-request",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
-      const data = await res.json();
-      console.log(data);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await fetch(
+  //       "https://portfolio-website-u1hq.onrender.com/portfolio/mail/send-request",
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(formData),
+  //       }
+  //     );
+  //     const data = await res.json();
+  //     console.log(data);
 
-      if (data.success) {
-        toast.success("The Message has been Sent!");
-        setFormData({ name: "", email: "", message: "" });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     if (data.success) {
+  //       toast.success("The Message has been Sent!");
+  //       setFormData({ name: "", email: "", message: "" });
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <section className="py-24 px-4 relative bg-secondary/30" id="contact">
@@ -130,7 +130,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="bg-card p-8 rounded-lg shadow-xs">
+          {/* <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -197,7 +197,7 @@ const ContactSection = () => {
                 Send Message <Send size={16} />
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

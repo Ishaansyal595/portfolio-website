@@ -113,14 +113,14 @@ const ContactSection = () => {
 
             <div className="pt-8">
               <h4 className="font-medium mb-4">Connect With Me</h4>
-              <div className="flex space-x-4 justify-center items-center">
+              <div className="flex space-x-4 justify-start items-center">
                 <a
                   href="https://www.instagram.com/isshaan._?igsh=MWNxNzZveDJzNHEybw%3D%3D&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram profile"
                 >
-                  <Instagram />
+                  <Instagram size={24} />
                 </a>
                 {/* Replace this with your real Facebook link or remove */}
                 {/* <a
@@ -137,7 +137,7 @@ const ContactSection = () => {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn profile"
                 >
-                  <Linkedin />
+                  <Linkedin size={24} />
                 </a>
               </div>
             </div>

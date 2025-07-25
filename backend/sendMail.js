@@ -15,15 +15,15 @@ export const SendMail = async (req, res, next) => {
   try {
     const { name, email, message } = req.body;
     console.log(name, email, message);
+    console.log("process env MAIL_ID: ", process.env.MAIL_ID);
 
     const mailOption = {
-      from: `"send a Message" <${process.env.MAIL_ID}>`,
+      from: `"send a Message" <${email}>`,
       to: process.env.MAIL_ID,
       subject: `New Message form Portfolio Website ${name}`,
       html: `
         <h3>New Message</h3>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
         <p>${message}</p>
       `,
     };

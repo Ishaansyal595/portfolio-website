@@ -75,7 +75,7 @@ const ContactSection = () => {
                   <Mail className="text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium text-start"> Email</h4>
                   <a
                     href="mailto:ishaansyal595@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -89,7 +89,7 @@ const ContactSection = () => {
                   <Phone className="text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium text-start"> Phone</h4>
                   <a
                     href="tel:+917710274988"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -103,7 +103,7 @@ const ContactSection = () => {
                   <MapPin className="text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
+                  <h4 className="font-medium text-start"> Location</h4>
                   <span className="text-muted-foreground hover:text-primary transition-colors">
                     Rishi Nagar, Ludhiana 141001, Punjab, India
                   </span>

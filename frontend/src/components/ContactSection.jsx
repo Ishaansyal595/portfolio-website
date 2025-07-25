@@ -111,7 +111,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="pt-8">
+            <div className="pt-8 text-start">
               <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-start items-center">
                 <a

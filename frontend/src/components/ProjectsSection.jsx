@@ -33,7 +33,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-width-5xl">
+      <div className="container mx-auto max-width-5xl flex flex-col justify-center items-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Featured <span className="text-primary">Projects</span>
         </h2>

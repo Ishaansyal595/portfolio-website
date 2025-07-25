@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 export const SendMail = async (req, res, next) => {
   try {
     const { name, email, message } = req.body;
-    console.log(name, email, message)
+    console.log(name, email, message);
 
     const mailOption = {
       from: `"send a Message" <${process.env.MAIL_ID}>`,
@@ -25,6 +25,7 @@ export const SendMail = async (req, res, next) => {
       `,
     };
 
+    console.log("mail option", mailOption);
     await transporter.sendMail(mailOption);
 
     res.status(200).json({

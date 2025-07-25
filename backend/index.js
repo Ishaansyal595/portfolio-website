@@ -17,10 +17,15 @@ const port = process.env.PORT;
 
 app.use(
   cors({
-    origin: "https://portfolio-website-orcin-psi-12.vercel.app",
+    origin: [
+      "https://portfolio-website-orcin-psi-12.vercel.app",
+      "http://localhost:3000"
+    ],
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
+
 
 app.use("/uploads", express.static("uploads")); // Serve static images
 

@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import utils from "./../lib/utils";
 
 const skills = [
-  { name: "HTML5", level: 90, category: "frontend" },
-  { name: "CSS3", level: 90, category: "frontend" },
-  { name: "JavaScript", level: 75, category: "frontend" },
+  { name: "HTML5", level: 70, category: "frontend" },
+  { name: "CSS3", level: 60, category: "frontend" },
+  { name: "JavaScript", level: 70, category: "frontend" },
   { name: "React.js", level: 70, category: "frontend" },
   { name: "Tailwind CSS", level: 60, category: "frontend" },
   { name: "Bootstrap", level: 60, category: "frontend" },
   { name: "WordPress", level: 75, category: "frontend" },
   { name: "Elementor & OceanWP", level: 75, category: "frontend" },
   { name: "WooCommerce", level: 70, category: "backend" },
-  { name: "Python", level: 70, category: "backend" },
-  { name: "Flask", level: 55, category: "backend" },
+  { name: "Python", level:60, category: "backend" },
+  { name: "Flask", level: 45, category: "backend" },
   { name: "Node.js", level: 55, category: "backend" },
   { name: "Express.js", level: 55, category: "backend" },
   { name: "MongoDB", level: 50, category: "database" },

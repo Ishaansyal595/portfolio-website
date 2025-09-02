@@ -6,11 +6,13 @@ import { Toaster } from "sonner";
 import AddProjectForm from "./components/AddProject";
 import ProjectDetail from "./pages/ProjectDetail";
 import EditProject from "./components/Edit Project";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
       <Toaster position="top-center" richColor />
+      <Navbar />
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />

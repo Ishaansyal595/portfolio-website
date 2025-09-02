@@ -1,7 +1,6 @@
 import React from 'react';
 
 import StarBackground from "../components/StarBackground";
-import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import AboutMeSection from "../components/AboutMeSection";
 import SkillsSection from "../components/SkillsSection";
@@ -15,9 +14,6 @@ const Home = () => {
 
       {/* Background Effect */}
       <StarBackground />
-
-      {/* Navbar */}
-      <Navbar />
 
       {/* Main Content */}
       <main>

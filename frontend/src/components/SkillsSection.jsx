@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import utils from "./../lib/utils";
 
 const skills = [
-  { name: "HTML5", level: 70, category: "frontend" },
-  { name: "CSS3", level: 60, category: "frontend" },
-  { name: "JavaScript", level: 70, category: "frontend" },
-  { name: "React.js", level: 70, category: "frontend" },
-  { name: "Tailwind CSS", level: 60, category: "frontend" },
-  { name: "Bootstrap", level: 60, category: "frontend" },
-  { name: "WordPress", level: 75, category: "frontend" },
-  { name: "Elementor & OceanWP", level: 75, category: "frontend" },
-  { name: "WooCommerce", level: 70, category: "backend" },
-  { name: "Python", level:60, category: "backend" },
-  { name: "Flask", level: 45, category: "backend" },
-  { name: "Node.js", level: 55, category: "backend" },
-  { name: "Express.js", level: 55, category: "backend" },
-  { name: "MongoDB", level: 50, category: "database" },
-  { name: "MySQL", level: 50, category: "database" },
-  // { name: "Git & GitHub", level: 70 },
+  { name: "HTML5", category: "frontend" },
+  { name: "CSS3", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "React.js", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Next js", category: "frontend" },
+  { name: "Bootstrap", category: "frontend" },
+  { name: "WordPress", category: "frontend" },
+  { name: "Elementor & OceanWP", category: "frontend" },
+  { name: "WooCommerce", category: "backend" },
+  { name: "Python", category: "backend" },
+  { name: "Django", category: "backend" },
+  { name: "Flask", category: "backend" },
+  { name: "Node.js", category: "backend" },
+  { name: "Express.js", category: "backend" },
+  { name: "MongoDB", category: "database" },
+  { name: "MySQL", category: "database" },
+  { name: "Postgresql", category: "database" },
+  // { name: "Git & GitHub" },
   // { name: "Figma", level: 50 },
   // { name: "Prompt Engineering", level: 70 },
   // { name: "ChatGPT & OpenAI API", level: 70 },
@@ -64,17 +67,17 @@ const SkillsSection = () => {
               <div className="text-left mb-4">
                 <h3 className="font-semibold text-lg">{skill.name}</h3>
               </div>
-              <div className="w-full rounded-full bg-secondary/50 h-2 overflow-hidden">
+              {/* <div className="w-full rounded-full bg-secondary/50 h-2 overflow-hidden">
                 <div
                   className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
                   style={{ width: skill.level + "%" }}
                 />{" "}
-              </div>
-              <div className="text-right">
+              </div> */}
+              {/* <div className="text-right">
                 <span className="text-sm text-muted-foreground">
                   {skill.level + "%"}
                 </span>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
